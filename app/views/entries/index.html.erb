@@ -1,0 +1,51 @@
+<h1>Listing entries</h1>
+
+<table>
+  <tr>
+    <th>Name</th>
+    <th>Likes</th>
+    <th>Dislikes</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @entries.each do |entry| %>
+  <tr>
+    <td><%= entry.name %></td>
+    <td><%= entry.likes %></td>
+    <td><%= entry.dislikes %></td>
+    <td><%= link_to 'Show', entry %></td>
+    <td><%= link_to 'Edit', edit_entry_path(entry) %></td>
+    <td><%= link_to 'Destroy', entry, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New Entry', new_entry_path %>
+
+<br />
+<br />
+
+<b>Total Likes:</b>
+<%= @likes %>
+
+<br />
+
+<b>Total Dislikes:</b>
+<%= @dislikes %>
+
+<br />
+
+<b>Total Entries:</b>
+<%= @count %>
+
+<br />
+
+<b>Pool:</b>
+<%= @evaluate %>
+
+<br />
+
