@@ -2,9 +2,9 @@
 
 <table>
   <tr>
-    <th>Name</th>
-    <th>Likes</th>
-    <th>Dislikes</th>
+    <th><i class="icon-user"></i> Name</th>
+    <th><i class="icon-thumbs-up"></i> Likes</th>
+    <th><i class="icon-thumbs-down"></i> Dislikes</th>
     <th></th>
     <th></th>
     <th></th>
@@ -43,9 +43,9 @@
 <%= @count %>
 
 <br />
-<b>Resulting winner:</b>
 <div id="result">
-<%= render "update" %>
+  <b>Result: </b>
+  <br />
 </div>
 <br />
-<%= link_to "Update Result", entries_path, remote: true %>
+<%= link_to raw("<i class=\"icon-refresh\"></i> Result"), entries_path, remote: true, class: "btn" %>
