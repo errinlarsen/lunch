@@ -38,19 +38,13 @@ class Entry < ActiveRecord::Base
     #Merges the 2 differences, I will later evaluate only results > 0.
     results = counterlike.merge(counterdislike) { |key, old, new| old + new }
 
-    positive = results.select{ |k,v| v > 0 }.keys
+    positive = results.select{ |k,v| v > 0 }
 
-    vals = positive.map { |pos| results[pos] }
 
-    # pool = Array.new(0)
-    # positive.each_index do |i|
-      # pool << (positive[i] + ' ') * vals[i]
-    # end
-    # pool
+    ary = (positive.map { |k,v| (k.gsub(' ','_') + ' ') * v }*"").split(' ')
+    ary = ary.map { |entry| entry.gsub('_', ' ') }
+
+    sample = ary.shuffle.sample
   end
 
-  def self.shuffle
-   # self.evaluate
-   # $positive#.shuffle.sample
-  end
 end

@@ -7,7 +7,6 @@ class EntriesController < ApplicationController
     @dislikes = Entry.dislikes
     @count = Entry.count
     @evaluate = Entry.evaluate
-    @shuffle = Entry.shuffle
 
     respond_to do |format|
       format.html # index.html.erb
