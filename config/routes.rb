@@ -1,6 +1,7 @@
 Lunch::Application.routes.draw do
   resources :entries
 
+  match "entries/ajaxupdate" => "entries#ajaxupdate"
 
   root to: 'lunch#index'
 

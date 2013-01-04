@@ -11,6 +11,7 @@ class EntriesController < ApplicationController
     respond_to do |format|
       format.html # index.html.erb
       format.json { render json: @entries }
+      format.js { render :layout=>false }
     end
   end
 
