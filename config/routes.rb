@@ -1,7 +1,7 @@
 Lunch::Application.routes.draw do
-  resources :entries
+  devise_for :users
 
-  match "entries/ajaxupdate" => "entries#ajaxupdate"
+  resources :entries
 
   root to: 'lunch#index'
 

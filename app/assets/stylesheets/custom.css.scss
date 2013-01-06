@@ -3,6 +3,7 @@
 body{
   padding-left: 10px;
   background-color:lightGrey;
+  margin: 10px;
   h1{
     color:white;
     -webkit-text-shadow: -1px -1px black;
@@ -17,4 +18,27 @@ body{
   -webkit-border-radius: 25px;
   -moz-border-radius: 25px;
   border-radius: 25px;
+}
+.navbar{
+  margin-top: 10px;
+}
+nav,li{
+  vertical-align: bottom;
+  color:white;
+  font-size:1.2em;
+  -webkit-text-shadow: -1px -1px black;
+  -moz-text-shadow: -1px -1px black;
+  text-shadow: -1px -1px black;
+}
+.brand {
+  li{
+    color:black;
+  }
+  color:black;
+  margin: 150%;
+  font-size:10;
+}
+.smaller{
+  font-size:1em;
+  line-height:14;
 }
