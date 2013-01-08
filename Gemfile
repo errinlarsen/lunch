@@ -9,6 +9,7 @@ gem 'sqlite3'
 gem 'thin'
 gem 'bootstrap-sass'
 gem 'devise'
+gem 'simple_form'
 
 
 # Gems used only for assets and not required
@@ -25,7 +26,6 @@ end
 
 gem 'jquery-rails'
 # gem 'pjax_rails'
-gem 'rack-pjax'
 
 # To use ActiveModel has_secure_password
 # gem 'bcrypt-ruby', '~> 3.0.0'
