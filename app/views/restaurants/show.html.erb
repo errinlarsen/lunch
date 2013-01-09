@@ -1,0 +1,12 @@
+<p id="notice"><%= notice %></p>
+<h1 class="offset1"><%= @restaurant.name %></h1>
+<div class="hero-unit">
+<p>
+  <b>Name:</b>
+  <%= @restaurant.name %>
+</p>
+
+
+<%= link_to 'Edit', edit_restaurant_path(@restaurant) %> |
+<%= link_to 'Back', restaurants_path %>
+</div>

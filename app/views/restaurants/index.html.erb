@@ -1,0 +1,23 @@
+<h1 class="offset1">Listing restaurants</h1>
+<div class= "hero-unit">
+<div class="row-fluid">
+  <div class= "span1"><i class="icon-user"></i> Name</div>
+</div>
+
+<% @restaurants.each do |restaurant| %>
+  <div class="row-fluid">
+
+    <div class= "span1"><%= restaurant.name %></div>
+    
+
+    <div class= "btn-group">
+      <%= link_to 'Show', restaurant, class: "btn btn-primary"%>
+      <%= link_to 'Edit', edit_restaurant_path(restaurant), class: "btn btn-info" %>
+      <%= link_to 'Destroy', restaurant, method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-danger" %>
+    </div>
+  </div>
+<% end %>
+
+<br />
+
+<%= link_to 'New Restaurant', new_restaurant_path, class: "btn btn-success" %>

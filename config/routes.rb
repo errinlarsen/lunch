@@ -2,8 +2,9 @@ Lunch::Application.routes.draw do
   devise_for :users
 
   resources :entries
+  resources :restaurants
 
-  root to: 'lunch#index'
+  root to: 'entries#index'
 
   # The priority is based upon order of creation:
   # first created -> highest priority.

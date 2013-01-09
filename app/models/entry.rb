@@ -1,7 +1,7 @@
 class Entry < ActiveRecord::Base
-  attr_accessible :dislikes, :likes, :name
-
-  validates :name, presence: true
+  attr_accessible :dislikes, :likes
+  belongs_to :user
+  belongs_to :restaurant
 
   def self.likes
     self.all.map { |entry| entry.likes }*", "
