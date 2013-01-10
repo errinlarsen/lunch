@@ -30,7 +30,7 @@ class RestaurantsController < ApplicationController
         format.html # new.html.erb
         format.json { render json: @restaurant }
       else
-        format.html { redirect_to @signin, notice: 'Please sign in to create an Entry' }
+        format.html { redirect_to new_user_session_path, notice: 'Please sign in to create an Entry' }
         format.json { render :layout=>false }
       end
     end
