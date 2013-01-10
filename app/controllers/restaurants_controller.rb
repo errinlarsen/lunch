@@ -13,6 +13,7 @@ class RestaurantsController < ApplicationController
 
   def show
     @restaurant = Restaurant.find(params[:id])
+    @user= User.find(@restaurant.user_id)
 
     respond_to do |format|
       format.html # show.html.erb
@@ -22,10 +23,16 @@ class RestaurantsController < ApplicationController
 
   def new
     @restaurant = Restaurant.new
+    @signin = User.new
 
     respond_to do |format|
-      format.html # new.html.erb
-      format.json { render json: @restaurant }
+      if user_signed_in?
+        format.html # new.html.erb
+        format.json { render json: @restaurant }
+      else
+        format.html { redirect_to @signin, notice: 'Please sign in to create an Entry' }
+        format.json { render :layout=>false }
+      end
     end
   end
 
@@ -35,7 +42,7 @@ class RestaurantsController < ApplicationController
   end
 
   def create
-    @restaurant = Restaurant.new(params[:Restaurant])
+    @restaurant = Restaurant.new(params[:restaurant])
 
     respond_to do |format|
       if @restaurant.save
@@ -52,7 +59,7 @@ class RestaurantsController < ApplicationController
     @restaurant = Restaurant.find(params[:id])
 
     respond_to do |format|
-      if @restaurant.update_attributes(params[:Restaurant])
+      if @restaurant.update_attributes(params[:restaurant])
         format.html { redirect_to @restaurant, notice: 'Restaurant was successfully updated.' }
         format.json { head :no_content }
       else
@@ -67,7 +74,7 @@ class RestaurantsController < ApplicationController
     @restaurant.destroy
 
     respond_to do |format|
-      format.html { redirect_to restaurant_path }
+      format.html { redirect_to restaurants_path }
       format.json { head :no_content }
     end
   end

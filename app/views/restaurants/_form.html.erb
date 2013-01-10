@@ -1,8 +1,5 @@
 <%= simple_form_for(@restaurant) do |f| %>
-  <div>
   <%= f.input :name %>
-  </div>
-  <div>
-    <%= f.button :submit %>
-  </div>
+  <%= f.input :user_id, as: :hidden, input_html: { value: current_user.id } %>
+  <%= f.button :submit %>
 <% end %>

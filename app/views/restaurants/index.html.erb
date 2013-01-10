@@ -1,4 +1,4 @@
-<h1 class="offset1">Listing restaurants</h1>
+<h1 class="offset1">Listing Restaurants</h1>
 <div class= "hero-unit">
 <div class="row-fluid">
   <div class= "span1"><i class="icon-user"></i> Name</div>
@@ -7,10 +7,10 @@
 <% @restaurants.each do |restaurant| %>
   <div class="row-fluid">
 
-    <div class= "span1"><%= restaurant.name %></div>
+    <div class= "span2"><%= restaurant.name %></div>
     
 
-    <div class= "btn-group">
+    <div class= "btn-group offset2">
       <%= link_to 'Show', restaurant, class: "btn btn-primary"%>
       <%= link_to 'Edit', edit_restaurant_path(restaurant), class: "btn btn-info" %>
       <%= link_to 'Destroy', restaurant, method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-danger" %>

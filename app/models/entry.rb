@@ -1,5 +1,5 @@
 class Entry < ActiveRecord::Base
-  attr_accessible :dislikes, :likes
+  attr_accessible :dislikes, :likes, :user_id, :restaurant_id
   belongs_to :user
   belongs_to :restaurant
 

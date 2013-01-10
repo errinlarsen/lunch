@@ -1,8 +1,14 @@
-<p id="notice"><%= notice %></p>
+<% unless notice.blank? %>
+	<p class="alert alert-success"><%= notice %></p>
+<% end %>
 <h1 class="offset1"><%= @restaurant.name %></h1>
 <div class="hero-unit">
 <p>
-  <b>Name:</b>
+  <b>Submitted by:</b>
+  <%= @user.name %>
+</p>
+<p>
+  <b>Restaurant Name:</b>
   <%= @restaurant.name %>
 </p>
 

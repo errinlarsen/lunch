@@ -30,10 +30,16 @@ class EntriesController < ApplicationController
   # GET /entries/new.json
   def new
     @entry = Entry.new
+    @signin = User.new
 
     respond_to do |format|
-      format.html # new.html.erb
-      format.json { render json: @entry }
+      if user_signed_in?
+        format.html # new.html.erb
+        format.json { render json: @entry }
+      else
+        format.html { redirect_to new_user_session_path, notice: 'Please sign in to create an Entry' }
+        format.json { render :layout=>false }
+      end
     end
   end
 
