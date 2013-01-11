@@ -23,14 +23,13 @@ class RestaurantsController < ApplicationController
 
   def new
     @restaurant = Restaurant.new
-    @signin = User.new
 
     respond_to do |format|
       if user_signed_in?
         format.html # new.html.erb
         format.json { render json: @restaurant }
       else
-        format.html { redirect_to new_user_session_path, notice: 'Please sign in to create an Entry' }
+        format.html { redirect_to new_user_session_path, notice: 'Please sign in to create a restaurant' }
         format.json { render :layout=>false }
       end
     end
@@ -39,6 +38,16 @@ class RestaurantsController < ApplicationController
 
   def edit
     @restaurant = Restaurant.find(params[:id])
+
+    respond_to do |format|
+      if user_signed_in?
+        format.html # new.html.erb
+        format.json { render json: @restaurant }
+      else
+        format.html { redirect_to new_user_session_path, notice: 'Please sign in to edit a restaurant' }
+        format.json { render :layout=>false }
+      end
+    end
   end
 
   def create
@@ -46,8 +55,8 @@ class RestaurantsController < ApplicationController
 
     respond_to do |format|
       if @restaurant.save
-        format.html { redirect_to @restaurant, notice: 'Restaurant was successfully created.' }
-        format.json { render json: @restaurant, status: :created, location: @restaurant }
+        format.html { redirect_to restaurants_path, notice: 'Restaurant was successfully created.' }
+        format.json { render json: restaurants_path, status: :created, location: @restaurant }
       else
         format.html { render action: "new" }
         format.json { render json: @restaurant.errors, status: :unprocessable_entity }

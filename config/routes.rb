@@ -1,8 +1,8 @@
 Lunch::Application.routes.draw do
   devise_for :users
 
-  resources :entries
-  resources :restaurants
+  resources :entries, except: :show
+  resources :restaurants, except: :show
 
   root to: 'entries#index'
 

@@ -6,18 +6,15 @@
 
 <% @restaurants.each do |restaurant| %>
   <div class="row-fluid">
-
     <div class= "span2"><%= restaurant.name %></div>
-    
 
-    <div class= "btn-group offset2">
-      <%= link_to 'Show', restaurant, class: "btn btn-primary"%>
-      <%= link_to 'Edit', edit_restaurant_path(restaurant), class: "btn btn-info" %>
-      <%= link_to 'Destroy', restaurant, method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-danger" %>
-    </div>
+    <% unless !user_signed_in? %>
+    	<%= link_to 'Edit', edit_restaurant_path(restaurant), class: "btn btn-primary" %>
+    <% end %>
   </div>
 <% end %>
 
 <br />
-
-<%= link_to 'New Restaurant', new_restaurant_path, class: "btn btn-success" %>
+<% unless !user_signed_in? %>
+	<%= link_to 'New Restaurant', new_restaurant_path, class: "btn btn-success" %>
+<% end %>

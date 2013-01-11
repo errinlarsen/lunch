@@ -30,14 +30,13 @@ class EntriesController < ApplicationController
   # GET /entries/new.json
   def new
     @entry = Entry.new
-    @signin = User.new
 
     respond_to do |format|
       if user_signed_in?
         format.html # new.html.erb
         format.json { render json: @entry }
       else
-        format.html { redirect_to new_user_session_path, notice: 'Please sign in to create an Entry' }
+        format.html { redirect_to new_user_session_path, notice: 'Please sign in to create an entry' }
         format.json { render :layout=>false }
       end
     end
@@ -46,6 +45,16 @@ class EntriesController < ApplicationController
   # GET /entries/1/edit
   def edit
     @entry = Entry.find(params[:id])
+
+    respond_to do |format|
+      if user_signed_in?
+        format.html # new.html.erb
+        format.json { render json: @entry }
+      else
+        format.html { redirect_to new_user_session_path, notice: 'Please sign in to edit an entry' }
+        format.json { render :layout=>false }
+      end
+    end
   end
 
   # POST /entries
@@ -55,8 +64,8 @@ class EntriesController < ApplicationController
 
     respond_to do |format|
       if @entry.save
-        format.html { redirect_to @entry, notice: 'Entry was successfully created.' }
-        format.json { render json: @entry, status: :created, location: @entry }
+        format.html { redirect_to entries_path, notice: 'Entry was successfully created.' }
+        format.json { render json: entries_path, status: :created, location: @entry }
       else
         format.html { render action: "new" }
         format.json { render json: @entry.errors, status: :unprocessable_entity }
