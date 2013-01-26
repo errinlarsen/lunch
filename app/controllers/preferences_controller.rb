@@ -1,4 +1,4 @@
-class EntriesController < ApplicationController
+class PreferencesController < ApplicationController
   # GET /entries
   # GET /entries.json
   def index
