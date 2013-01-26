@@ -24,6 +24,12 @@ group :assets do
 end
 
 gem 'jquery-rails'
+
+group :development, :test do
+  gem 'sqlite3'
+  gem 'thin'
+  gem 'rspec'
+end
 # gem 'pjax_rails'
 
 # To use ActiveModel has_secure_password
