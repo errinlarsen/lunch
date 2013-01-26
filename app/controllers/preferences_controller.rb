@@ -2,15 +2,15 @@ class PreferencesController < ApplicationController
   # GET /entries
   # GET /entries.json
   def index
-    @entries = Entry.all
-    @likes = Entry.likes
-    @dislikes = Entry.dislikes
-    @count = Entry.count
-    @evaluate = Entry.evaluate
+    @preferences = Preference.all
+    @likes = []
+    @dislikes = []
+    @count = Preference.count
+    @evaluate = Preference.evaluate
 
     respond_to do |format|
       format.html # index.html.erb
-      format.json { render json: @entries }
+      format.json { render json: @preferences }
       format.js { render :layout=>false }
     end
   end
