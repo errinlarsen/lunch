@@ -2,7 +2,7 @@ require "spec_helper"
 
 describe RestaurantsController do
   before(:all) do
-    @rst = Restaurant.create
+    @rst = Restaurant.create(name: "Valid Eatery")
     @user = User.create
   end
 
@@ -95,12 +95,12 @@ describe RestaurantsController do
   # POST /restaurants
   describe "POST create" do
     it "assigns @restaurant" do
-      post :create
+      post :create, restaurant: {name: "Valid Eatery"}
       assigns(:restaurant).should be_a(Restaurant)
     end
 
     it "redirects to restaurants_path" do
-      post :create
+      post :create, restaurant: {name: "Valid Eatery"}
       response.should redirect_to(restaurants_path)
     end
   end
@@ -123,7 +123,7 @@ describe RestaurantsController do
   # DELETE /restaurants/1
   describe "DELETE destroy" do
     before(:each) do
-      @tmp_rst = Restaurant.create
+      @tmp_rst = Restaurant.create(name: "Don't eat here")
     end
 
     it "assigns @restaurant" do

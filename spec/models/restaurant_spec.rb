@@ -6,7 +6,18 @@ describe Restaurant do
   it { should respond_to :users }
 
   before(:each) do
-    @restaurant = Restaurant.new
+    @restaurant = Restaurant.new(name: "Valid Eatery")
+  end
+
+  describe "Validations" do
+    it "is valid with a name" do
+      @restaurant.should be_valid
+    end
+
+    it "is not valid without a name" do
+      @restaurant.name = nil
+      @restaurant.should_not be_valid
+    end
   end
 
   describe "Associations" do
