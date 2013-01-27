@@ -17,16 +17,21 @@ describe Preference do
     end
   end
 
-  describe "Like Method" do
-    it "Likes should default to false" do
+  describe "Like/Dislike Method" do
+    it "Like should default to false" do
       @pref.like.should be_false
     end
 
-    it "Likes should" do
+    it "Likes method should all return like as true" do
       Preference.likes.all? { |p| p.like == true }.should be_true
     end
 
+    it "Dislikes method should all return like as false" do
+      Preference.dislikes.all? { |p| p.like == true }.should be_false
+    end 
 
-
+    it "The count should equal the likes + dislikes" do
+      Preference.count.should == Preference.likes.count + Preference.dislikes.count
+    end
   end
 end
