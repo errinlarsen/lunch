@@ -2,6 +2,7 @@ class Preference < ActiveRecord::Base
   attr_accessible :like, :dislikes, :user_id, :restaurant_id
   belongs_to :user
   belongs_to :restaurant
+  validates :restaurant_id, uniqueness: { scope: :user_id }
 
   scope :likes, where(like: true)
   scope :dislikes, where(like: false)
