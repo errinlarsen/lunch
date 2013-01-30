@@ -5,3 +5,4 @@ Lunch::Application.routes.draw do
   resources :restaurants
 
   root to: 'preferences#index'
+end

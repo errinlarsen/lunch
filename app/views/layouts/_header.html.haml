@@ -1,0 +1,23 @@
+.navbar.navbar-inverse
+  .navbar-inner
+    %ul.nav.pull-left
+      %li.nav.brand Lunchinator
+      %li.divider-vertical
+      %li
+        = link_to "Home", root_path
+      %li.divider-vertical
+      %li
+        = link_to "Restaurants", restaurants_path
+    %ul.nav.pull-right
+      - if user_signed_in?
+        %li
+          %p.navbar-text
+            You are currently signed in as #{link_to current_user.name, edit_user_registration_path} Not you?
+        %li
+          = link_to "Sign Out", destroy_user_session_path, method: "delete"
+      - else
+        %li
+          = link_to "Sign in", new_user_session_path
+        %li.divider-vertical
+        %li
+          = link_to "Sign up", new_user_registration_path

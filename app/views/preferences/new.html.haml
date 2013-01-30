@@ -1,0 +1,8 @@
+%h1.offset1 New Preference
+.hero-unit.span4
+  Name:
+  \#{current_user.name}
+  %br/
+  %br/
+  = render 'form'
+  = link_to 'Back', preferences_path

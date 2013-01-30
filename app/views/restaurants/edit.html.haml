@@ -1,0 +1,6 @@
+%h1.offset1 Editing Restaurant
+.hero-unit.span4
+  = render 'form'
+  .btn-group
+    = link_to 'Back', restaurants_path, class: "btn btn-primary"
+    = link_to 'Destroy', restaurant_path, method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-danger"

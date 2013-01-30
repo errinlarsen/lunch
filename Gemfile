@@ -7,6 +7,7 @@ gem 'devise'
 gem 'simple_form'
 gem 'haml'
 gem 'hpricot'
+gem 'ruby_parser'
 
 group :assets do
   gem 'sass-rails',   '~> 3.2.3'

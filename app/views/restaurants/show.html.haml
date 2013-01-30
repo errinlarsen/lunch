@@ -1,0 +1,13 @@
+- unless notice.blank?
+  %p.alert.alert-success= notice
+%h1.offset1= @restaurant.name
+.hero-unit
+  %p
+    %b Submitted by:
+    = @user.name
+  %p
+    %b Restaurant Name:
+    = @restaurant.name
+  = link_to 'Edit', edit_restaurant_path(@restaurant)
+  |
+  \#{link_to 'Back', restaurants_path}

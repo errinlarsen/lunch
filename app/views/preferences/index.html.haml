@@ -1,0 +1,38 @@
+%h1.offset1 Listing Preferences
+.hero-unit
+  .row-fluid
+    .span1
+      %i.icon-user
+      Name
+    .span3
+      %i.icon-thumbs-up
+      Likes
+    .span3
+      %i.icon-thumbs-down
+      Dislikes
+  - @preferences.each do |pref|
+    .row-fluid
+      .span1 Placeholder
+      .span3= pref.likes
+      .span3= pref.dislikes
+      - if user_signed_in?
+        = link_to 'Edit', edit_preference_path(pref), class: "btn btn-primary"
+  %br/
+  - if user_signed_in?
+    = link_to 'New Preference', new_preference_path, class: "btn btn-success"
+    %br/
+    %br/
+  %b Total Likes:
+  = @likes
+  %br/
+  %b Total Dislikes:
+  = @dislikes
+  %br/
+  %b Total Preferences:
+  = @count
+  %br/
+  #result
+    %b Result:
+    %br/
+  %br/
+  = link_to raw("<i class=\"icon-refresh\"></i> Result"), preferences_path, remote: true, class: "btn"

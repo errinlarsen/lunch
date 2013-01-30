@@ -1,0 +1,14 @@
+- unless notice.blank?
+  %p.alert.alert-success= notice
+%h1.offset1
+  Preference for #{current_user.name}
+.hero-unit
+  %p
+    %b Likes:
+    = @preference.likes
+  %p
+    %b Dislikes:
+    = @preference.dislikes
+  = link_to 'Edit', edit_preference_path(@preference)
+  |
+  \#{link_to 'Back', preferences_path}

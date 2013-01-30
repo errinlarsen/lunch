@@ -1,0 +1,6 @@
+%h1.offset1 Editing preference
+.hero-unit.span4
+  = render 'form'
+  .btn-group
+    = link_to 'Back', preferences_path, class: "btn btn-primary"
+    = link_to 'Destroy', preference_path, method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-danger"
