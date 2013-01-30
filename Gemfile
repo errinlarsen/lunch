@@ -5,9 +5,7 @@ gem 'rails', '>= 3.2.11'
 gem 'bootstrap-sass'
 gem 'devise'
 gem 'simple_form'
-gem 'haml'
-gem 'hpricot'
-gem 'ruby_parser'
+gem 'haml-rails'
 
 group :assets do
   gem 'sass-rails',   '~> 3.2.3'
