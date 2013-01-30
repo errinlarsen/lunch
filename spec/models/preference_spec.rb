@@ -17,6 +17,14 @@ describe Preference do
     end
   end
 
+  describe "Model" do
+    it "restaurant_id should be unique" do
+      @pref = Preference.create(restaurant_id: 1)
+      @pref_dupe = Preference.create(restaurant_id: 1)
+      @pref_dupe.should_not be_valid
+    end
+  end
+
   describe "Like/Dislike Method" do
     it "Like should default to false" do
       @pref.like.should be_false
