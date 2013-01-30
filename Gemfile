@@ -6,6 +6,7 @@ gem 'bootstrap-sass'
 gem 'devise'
 gem 'simple_form'
 gem 'haml'
+gem 'hpricot'
 
 group :assets do
   gem 'sass-rails',   '~> 3.2.3'
