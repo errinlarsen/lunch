@@ -1,0 +1,16 @@
+<div class="btn-group">
+  <% if pref.present? %>
+    <% if pref.like %>
+      <span class="btn btn-mini btn-success disabled">Like</span>
+      <%= link_to 'Reset', preference_path(pref),                 method: :delete, class: "btn btn-mini btn-danger" %>
+    <% else %>
+      <%= link_to 'Reset', preference_path(pref),                 method: :delete, class: "btn btn-mini btn-danger" %>
+      <span class="btn btn-mini btn-success disabled">Dislike</span>
+    <% end %>
+  <% else %>
+    <%= link_to 'Like', like_restaurant_path(restaurant),         method: :post,   class: "btn btn-mini" %>
+    <%= link_to 'Dislike', dislike_restaurant_path(restaurant),   method: :post,   class: "btn btn-mini" %>
+  <% end %>
+
+  <%= link_to 'Edit', edit_restaurant_path(restaurant), class: "btn btn-primary btn-mini" %>
+</div>
