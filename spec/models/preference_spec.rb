@@ -5,6 +5,12 @@ describe Preference do
     @pref = Preference.new
   end
 
+  describe "#like" do
+    it "defaults to false" do
+      @pref.like.should be_false
+    end
+  end
+
   describe "Associations" do
     it "belongs_to a Restaurant" do
       @pref.restaurant = Restaurant.new
@@ -25,11 +31,7 @@ describe Preference do
     end
   end
 
-  describe "Like/Dislike Method" do
-    it "Like should default to false" do
-      @pref.like.should be_false
-    end
-
+  describe "Named scopes" do
     it "Likes method should all return like as true" do
       Preference.create(like: 1)
       Preference.likes.all? { |p| p.like == true }.should be_true
@@ -37,11 +39,7 @@ describe Preference do
 
     it "Dislikes method should all return like as false" do
       Preference.create(like: 0)
-      Preference.dislikes.all? { |p| p.like == true }.should be_false
+      Preference.dislikes.all? { |p| p.like == false }.should be_true
     end 
-
-    it "The count should equal the likes + dislikes" do
-      Preference.count.should == Preference.likes.count + Preference.dislikes.count
-    end
   end
 end
