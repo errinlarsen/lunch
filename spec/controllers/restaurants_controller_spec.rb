@@ -109,7 +109,6 @@ describe RestaurantsController do
   # POST /restaurants/1/like
   describe "POST like" do
     it "creates a new, associated, 'like' Preference" do
-      puts "COUNT: #{Preference.count}"
       expect {
         post :like, id: @rst
       }.to change(Preference, :count).by(1)
@@ -125,7 +124,6 @@ describe RestaurantsController do
   # POST /restaurants/1/like
   describe "POST dislike" do
     it "creates a new, associated, 'dislike' Preference" do
-      puts "COUNT: #{Preference.count}"
       expect {
         post :dislike, id: @rst
       }.to change(Preference, :count).by(1)
