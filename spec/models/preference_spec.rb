@@ -31,10 +31,12 @@ describe Preference do
     end
 
     it "Likes method should all return like as true" do
+      Preference.create(like: 1)
       Preference.likes.all? { |p| p.like == true }.should be_true
     end
 
     it "Dislikes method should all return like as false" do
+      Preference.create(like: 0)
       Preference.dislikes.all? { |p| p.like == true }.should be_false
     end 
 
