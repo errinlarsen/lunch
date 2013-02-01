@@ -97,7 +97,9 @@ class PreferencesController < ApplicationController
     @preference.destroy
 
     respond_to do |format|
+      @restaurant = @preference.restaurant
       format.html { redirect_to restaurants_path }
+      format.js
       format.json { head :no_content }
     end
   end

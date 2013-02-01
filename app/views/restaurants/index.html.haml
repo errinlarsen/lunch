@@ -4,17 +4,8 @@
     .row-fluid
       .span2= restaurant.name
       - unless !user_signed_in?
-        - preference = restaurant.preferences.find_by_user_id(current_user.id)
-        - case preference.try(:like)
-        - when true
-          = render partial: "liked_btn_group",
-              locals: { restaurant: restaurant, preference: preference }
-        - when false
-          = render partial: "disliked_btn_group",
-              locals: { restaurant: restaurant, preference: preference }
-        - else
-          = render partial: "no_pref_btn_group",
-              locals: { restaurant: restaurant }
+        = render partial: "preferences_btn_group",
+            locals: { restaurant: restaurant }
   %br/
   - unless !user_signed_in?
     = link_to 'New Restaurant', new_restaurant_path, class: "btn btn-success"

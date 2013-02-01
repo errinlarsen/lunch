@@ -65,9 +65,9 @@ class RestaurantsController < ApplicationController
   end
 
   def like
-    restaurant = Restaurant.find(params[:id])
+    @restaurant = Restaurant.find(params[:id])
     preference = Preference.new do |p|
-      p.restaurant = restaurant
+      p.restaurant = @restaurant
       p.user = current_user
     end
 
@@ -76,6 +76,7 @@ class RestaurantsController < ApplicationController
     respond_to do |format|
       if preference.save
         format.html { redirect_to restaurants_path, notice: 'Preference was successfully created.' }
+        format.js
         format.json { render json: restaurants_path, status: :created, location: preference }
       else
         format.html { redirect_to restaurants_path, notice: 'Something went wrong'}
@@ -85,9 +86,9 @@ class RestaurantsController < ApplicationController
   end
 
   def dislike
-    restaurant = Restaurant.find(params[:id])
+    @restaurant = Restaurant.find(params[:id])
     preference = Preference.new do |p|
-      p.restaurant = restaurant
+      p.restaurant = @restaurant
       p.user = current_user
     end
 
@@ -96,6 +97,7 @@ class RestaurantsController < ApplicationController
     respond_to do |format|
       if preference.save
         format.html { redirect_to restaurants_path, notice: 'Preference was successfully created.' }
+        format.js
         format.json { render json: restaurants_path, status: :created, location: preference }
       else
         format.html { redirect_to restaurants_path, notice: 'Something went wrong'}
