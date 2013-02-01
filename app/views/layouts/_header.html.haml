@@ -1,14 +1,15 @@
-.navbar.navbar-inverse
+.navbar
   .navbar-inner
     %ul.nav.pull-left
-      %li.nav.brand Lunchinator
-      %li.divider-vertical
+      %li
+        %img{src: "logo-sm.png", alt: "Lunchinator"}
+      %li.divider-vertical{style: "height: 61px;"}
       %li
         = link_to "Home", root_path
     %ul.nav.pull-right
       - if user_signed_in?
         %li
-          %p.navbar-text
+          %p
             You are currently signed in as #{link_to current_user.name, edit_user_registration_path} Not you?
         %li
           = link_to "Sign Out", destroy_user_session_path, method: "delete"

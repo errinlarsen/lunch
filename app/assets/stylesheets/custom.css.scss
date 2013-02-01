@@ -18,6 +18,7 @@ body{
   -webkit-border-radius: 25px;
   -moz-border-radius: 25px;
   border-radius: 25px;
+  background-color: #f9f9f9;
 }
 .navbar{
   margin-top: 10px;
@@ -29,6 +30,10 @@ nav,li{
   -webkit-text-shadow: -1px -1px black;
   -moz-text-shadow: -1px -1px black;
   text-shadow: -1px -1px black;
+  line-height:40px;
+  p{
+    padding-top: 11px;
+  }
 }
 .brand {
   li{
@@ -46,3 +51,8 @@ nav,li{
   width:30px;
   text-align: center;
 }
+/*
+.divider-vertical{
+  height: 61px;
+  other CSS keeps overwriting this, damn bootstrap
+}*/
