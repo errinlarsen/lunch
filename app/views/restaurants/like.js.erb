@@ -1,4 +1,2 @@
 <% preference = @restaurant.preferences.find_by_user_id(current_user.id) %>
-
-$("#restaurant-<%= @restaurant.id %>")
-  .html('<%= j render partial: "liked_btn_group", locals: { restaurant: @restaurant, preference: preference } %>')
+$("#restaurant-<%= @restaurant.id %>").html('<%= j render partial: "preferences_btn_group", locals: { restaurant: @restaurant } %>')
