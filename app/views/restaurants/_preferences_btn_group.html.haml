@@ -1,3 +1,5 @@
+- preference = restaurant.preferences.find_by_user_id(current_user.id)
+
 .btn-group
   - case restaurant.preferences.find_by_user_id(current_user.id).try(:like)
   - when true
