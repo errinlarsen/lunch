@@ -1,2 +1,2 @@
 <% preference = @restaurant.preferences.find_by_user_id(current_user.id) %>
-$("#restaurant-<%= @restaurant.id %>").html('<%= j render partial: "restaurants/preferences_btn_group", locals: { restaurant: @restaurant } %>')
+$("#restaurant-<%= @restaurant.id %>").replaceWith('<%= j render partial: "restaurants/preferences_btn_group", locals: { restaurant: @restaurant } %>')
