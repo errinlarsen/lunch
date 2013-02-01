@@ -1,0 +1,6 @@
+.btn-group
+  %span.btn.btn-mini.btn-success.disabled.prefBuggon Like
+  = link_to 'Reset', preference_path(preference), method: :delete,
+      class: "btn btn-mini btn-danger prefButton"
+  = link_to 'Edit', edit_restaurant_path(restaurant),
+      class: "btn btn-primary btn-mini"
